@@ -1,0 +1,27 @@
+.input{
+    border-radius: 4px;
+    border: 2px solid #CFCFCF;
+    max-width: 100%;
+    color: #2c2c2c;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    outline: none;
+    transition: 0.3s;
+    padding: 10px 14px;
+    -moz-appearance: textfield;
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    &::placeholder {
+        color: #919191;
+    }
+
+    &:focus {
+        border: 2px solid #281d8c;
+    }
+}

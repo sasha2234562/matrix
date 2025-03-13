@@ -1,0 +1,22 @@
+.selected_tracked_currency{
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    border: 1px solid #004600;
+    padding: 16px;
+}
+.data_tracked_currency{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.priceUp {
+    color: #5bd9b4;
+}
+.priceDown {
+    color: #ff3157;
+}

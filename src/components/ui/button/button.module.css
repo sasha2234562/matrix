@@ -1,0 +1,17 @@
+.button{
+    background-color: #3e35a2;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #fff;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: #221b64;
+        }
+    }
+}
