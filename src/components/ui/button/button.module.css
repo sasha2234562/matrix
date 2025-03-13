@@ -9,6 +9,11 @@
     transition: 0.3s;
     color: #fff;
 
+    &:disabled{
+        background-color: #7e7e7e;
+        pointer-events: none;
+    }
+
     @media (hover: hover) {
         &:hover {
             background-color: #221b64;

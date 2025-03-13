@@ -8,6 +8,12 @@
     border-radius: 8px;
     border: 1px solid #004600;
     padding: 16px;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &:hover{
+        background-color: #c0c0c0;
+    }
 }
 .data_tracked_currency{
     display: flex;

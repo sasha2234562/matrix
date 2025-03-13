@@ -55,7 +55,7 @@
     }
 }
 
-.currency {
+.currency, .disabled_currency{
     display: flex;
     justify-content: space-between;
     gap: 12px;
@@ -70,6 +70,10 @@
         cursor: pointer;
         background-color: #c2c2c2;
     }
+}
+.disabled_currency{
+    background-color: #858585;
+    pointer-events: none;
 }
 
 .priceUp {

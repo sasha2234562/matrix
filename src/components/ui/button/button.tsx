@@ -1,13 +1,13 @@
 import s from './button.module.css';
-import {FC} from "react";
+import { ButtonHTMLAttributes, DetailedHTMLProps, FC } from 'react';
 
-interface Props {
-    label: string;
-    onClick: ()=> void;
+interface Props extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>{
+  label: string;
+  onClick: () => void;
 }
 
-export const Button:FC<Props> = ({label, onClick}) => {
-    return (
-        <button className={s.button} onClick={onClick}>{label}</button>
-    );
+export const Button: FC<Props> = ({ label, onClick, ...restProps }) => {
+  return (
+    <button className={s.button} onClick={onClick} {...restProps}>{label}</button>
+  );
 };

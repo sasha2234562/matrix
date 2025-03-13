@@ -1,8 +1,0 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import s from './selected-tracked-currency.module.css';
-import { memo } from "react";
-export const SelectedTrackedCurrency = memo(({ price, changePrice, symbol, count, portfolioPercentage }) => {
-    return (_jsxs("div", { className: s.selected_tracked_currency, children: [_jsxs("div", { className: s.data_tracked_currency, children: [_jsx("span", { children: "\u0410\u043A\u0442\u0438\u0432" }), _jsx("span", { children: symbol })] }), _jsxs("div", { className: s.data_tracked_currency, children: [_jsx("span", { children: "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E" }), _jsx("span", { children: count })] }), _jsxs("div", { className: s.data_tracked_currency, children: [_jsx("span", { children: "\u0426\u0435\u043D\u0430" }), _jsx("span", { children: price.toFixed(2) })] }), _jsxs("div", { className: s.data_tracked_currency, children: [_jsx("span", { children: "\u041E\u0431\u0449\u0430\u044F \u0441\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C" }), _jsx("span", { children: (price * count).toFixed(2) })] }), _jsxs("div", { className: s.data_tracked_currency, children: [_jsx("span", { children: "\u0418\u0437\u043C. \u0437\u0430 24 \u0447." }), _jsxs("span", { className: +changePrice > 0
-                            ? s.priceUp : +changePrice < 0
-                            ? s.priceDown : undefined, children: [(+changePrice).toFixed(2), " %"] })] }), _jsxs("div", { className: s.data_tracked_currency, children: [_jsx("span", { children: "% \u043F\u043E\u0440\u0442\u0444\u0435\u043B\u044F" }), _jsxs("span", { children: [portfolioPercentage, "%"] })] })] }));
-});
