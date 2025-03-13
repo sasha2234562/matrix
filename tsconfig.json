@@ -5,8 +5,10 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
+    "allowImportingTsExtensions": false, // Уберите или установите на false
+    "noEmit": false,
     "target": "ES6",
-    "module": "commonjs",
+    "module": "ESNext",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,

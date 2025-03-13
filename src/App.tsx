@@ -1,9 +1,9 @@
 import './App.css'
-import {Button} from "./components/ui/button/button.tsx";
 import logo from './assets/matrix.svg'
-import {Modal} from "./components/ui/modal/modal.tsx";
 import {useCallback, useEffect, useMemo, useState} from "react";
-import {SelectedTrackedCurrency} from "./components/ui/selected-tracked-currency/selected-tracked-currency.tsx";
+import {SelectedTrackedCurrency} from "./components/ui/selected-tracked-currency/selected-tracked-currency";
+import {Button} from "./components/ui/button/button";
+import {Modal} from "./components/ui/modal/modal";
 
 export interface Currency {
     symbol: string;

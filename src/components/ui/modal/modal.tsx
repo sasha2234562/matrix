@@ -1,9 +1,9 @@
 import s from './modal.module.css';
-import {Input} from "../input/input.tsx";
+import {Input} from "../input/input";
 import {ChangeEvent, FC, memo, useMemo, useState} from "react";
 import icon_close from '../../../assets/icon_cross.svg';
-import {Button} from "../button/button.tsx";
-import {Currency, Term} from "../../../App.tsx";
+import {Button} from "../button/button";
+import {Currency, Term} from "../../../App";
 import {Virtuoso} from "react-virtuoso";
 
 interface Props {
