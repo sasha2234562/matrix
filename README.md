@@ -11,16 +11,6 @@ Frontend: Developed using React, it provides a responsive user interface.
 Backend: Built with Express, it handles API requests and serves the frontend application.
 Folder Structure
 
-portfolio-overview/
-├── client/ # Frontend code
-│ ├── src/ # Source files
-│ ├── public/ # Static files
-│ └── ...
-├── server/ # Backend code
-│ ├── index.js # Entry point for the Express server
-│ └── ...
-└── ...
-
 ## Getting Started
 
 Prerequisites
