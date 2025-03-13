@@ -63,28 +63,19 @@ pnpm run deploy
 ```
 
 ## Dependencies
-Core Dependencies
-express: Web framework for Node.js.
-gh-pages: For deploying the application to GitHub Pages.
-react: A JavaScript library for building user interfaces.
-react-dom: Provides DOM-specific methods for React.
-react-virtuoso: A library for rendering large lists and tabular data efficiently.
-Development Dependencies
-@eslint/js: ESLint core.
-@types/express: Type definitions for Express.
-@types/node: Type definitions for Node.js.
-@types/react: Type definitions for React.
-@types/react-dom: Type definitions for React DOM.
-@vitejs/plugin-react: Vite plugin for React.
-eslint: Linting utility for JavaScript and JSX.
-eslint-plugin-react-hooks: ESLint plugin for React hooks.
-eslint-plugin-react-refresh: ESLint plugin for React Refresh.
-globals: Global variables for JavaScript environments.
-prettier: Code formatter.
-typescript: TypeScript language support.
-typescript-eslint: ESLint integration for TypeScript.
-vite: Build tool that focuses on speed and performance.
-Conclusion
-This README provides an overview of the Portfolio Overview application, including instructions for setup and the
-architecture behind it. For further questions or issues, please refer to the project's documentation or contact the
-maintainers.
+```js
+'@eslint/js: ESLint core.'
+'@types/express: Type definitions for Express.'
+'@types/node: Type definitions for Node.js.'
+'@types/react: Type definitions for React.'
+'@types/react-dom: Type definitions for React DOM.'
+'@vitejs/plugin-react: Vite plugin for React.'
+'eslint: Linting utility for JavaScript and JSX.'
+'eslint-plugin-react-hooks: ESLint plugin for React hooks.'
+'eslint-plugin-react-refresh: ESLint plugin for React Refresh.'
+'globals: Global variables for JavaScript environments.'
+'prettier: Code formatter.'
+'typescript: TypeScript language support.'
+'typescript-eslint: ESLint integration for TypeScript.'
+'vite: Build tool that focuses on speed and performance.'
+```
