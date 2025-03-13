@@ -63,8 +63,7 @@
     padding: 4px 8px;
 
     span {
-        width: max-content;
-        text-align: left;
+        width: 100%;
     }
 
     &:hover {
@@ -75,12 +74,20 @@
 
 .priceUp {
     color: #44d772;
+    text-align: right;
 }
 
 .priceDown {
     color: #ff3157;
+    text-align: right;
 }
-
+.priceZero{
+    text-align: right;
+}
+.symbol{
+    text-align: left;
+    width: 100%;
+}
 .close_window {
     position: absolute;
     top: 15px;

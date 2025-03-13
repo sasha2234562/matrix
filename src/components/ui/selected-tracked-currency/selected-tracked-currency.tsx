@@ -6,9 +6,10 @@ interface Props {
     price: number;
     changePrice: string;
     count: number;
+    portfolioPercentage: number;
 }
 
-export const SelectedTrackedCurrency: FC<Props> = memo(({price, changePrice, symbol, count}) => {
+export const SelectedTrackedCurrency: FC<Props> = memo(({price, changePrice, symbol, count, portfolioPercentage}) => {
 
     return (
         <div className={s.selected_tracked_currency}>
@@ -22,18 +23,18 @@ export const SelectedTrackedCurrency: FC<Props> = memo(({price, changePrice, sym
             </div>
             <div className={s.data_tracked_currency}>
                 <span>Цена</span>
-                <span>{price}</span>
+                <span>{price.toFixed(2)}</span>
             </div>
             <div className={s.data_tracked_currency}>
                 <span>Общая стоимость</span>
-                <span>{price * count}</span>
+                <span>{(price * count).toFixed(2)}</span>
             </div>
             <div className={s.data_tracked_currency}>
                 <span>Изм. за 24 ч.</span>
                 <span className={+changePrice > 0
                     ? s.priceUp : +changePrice < 0
-                        ? s.priceDown : undefined}>{changePrice} %</span></div>
-            <div className={s.data_tracked_currency}><span>% портфеля</span></div>
+                        ? s.priceDown : undefined}>{(+changePrice).toFixed(2)} %</span></div>
+            <div className={s.data_tracked_currency}><span>% портфеля</span><span>{portfolioPercentage}%</span></div>
         </div>
     );
 });

@@ -2,10 +2,32 @@ import './App.css'
 import {Button} from "./components/ui/button/button.tsx";
 import logo from './assets/matrix.svg'
 import {Modal} from "./components/ui/modal/modal.tsx";
-import {useCallback, useEffect, useState} from "react";
-import {useAppDispatch} from "./components/bll/redux/store.ts";
-import {getCurrency} from "./components/bll/redux/thunks/get-currency.ts";
+import {useCallback, useEffect, useMemo, useState} from "react";
 import {SelectedTrackedCurrency} from "./components/ui/selected-tracked-currency/selected-tracked-currency.tsx";
+
+export interface Currency {
+    symbol: string;
+    priceChange: string;
+    priceChangePercent: string;
+    weightedAvgPrice: string;
+    prevClosePrice: string;
+    lastPrice: string;
+    lastQty: string;
+    bidPrice: string;
+    bidQty: string;
+    askPrice: string;
+    askQty: string;
+    openPrice: string;
+    highPrice: string;
+    lowPrice: string;
+    volume: string;
+    quoteVolume: string;
+    openTime: number;
+    closeTime: number;
+    firstId: number;
+    lastId: number;
+    count: number;
+}
 
 interface TickerData {
     e: string; // Event type
@@ -41,10 +63,22 @@ function App() {
     const [selectWatchCurrencies, setSelectWatchCurrencies] = useState<Term>({});
     const [openWindowCurrencies, setOpenWindowCurrencies] = useState(false);
     const [tickers, setTickers] = useState<{ [key: string]: TickerData }>({});
-    const dispatch = useAppDispatch();
+    const [currencies, setCurrencies] = useState<Currency[]>([]);
 
     useEffect(() => {
-        dispatch(getCurrency());
+        fetch('https://api.binance.com/api/v3/ticker/24hr')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                setCurrencies(data)
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
     }, []);
 
     useEffect(() => {
@@ -95,6 +129,12 @@ function App() {
 
     const onClickOpenWindowCurrencies = useCallback(() => setOpenWindowCurrencies(prev => !prev), [])
 
+    const totalOpenPrice = useMemo(() => {
+        return Object.values(tickers).reduce((sum, ticker) => {
+            return sum + parseFloat(String(+ticker.o * (selectWatchCurrencies[ticker.s]?.countTerm)));
+        }, 0);
+    }, [tickers, selectWatchCurrencies]);
+
     return (
         <>
             <header className="header">
@@ -103,13 +143,25 @@ function App() {
             </header>
             <main className="main">
                 <div className={'table_select_currencies'}>
-                    {Object.values(tickers).map(item => (
-                        <SelectedTrackedCurrency key={item.s} symbol={item.s} price={+item.o} changePrice={item.p}
-                                                 count={selectWatchCurrencies[item.s].countTerm}/>
-                    ))}
+                    {Object.values(tickers).map(item => {
+                        const itemTotalOpenPrice = +item.o * (selectWatchCurrencies[item.s]?.countTerm);
+                        const percentage = totalOpenPrice > 0 ? (itemTotalOpenPrice / totalOpenPrice) * 100 : 0;
+                        const roundedPercentage = parseFloat(percentage.toFixed(2));
+                        return (
+                            <SelectedTrackedCurrency
+                                key={item.s}
+                                symbol={item.s}
+                                price={+item.o}
+                                changePrice={item.p}
+                                count={selectWatchCurrencies[item.s]?.countTerm}
+                                portfolioPercentage={roundedPercentage}
+                            />
+                        );
+                    })}
                 </div>
                 {openWindowCurrencies &&
-                    <Modal onSelectCurrency={onSelectCurrency} onClickCloseWindow={onClickOpenWindowCurrencies}/>}
+                    <Modal onSelectCurrency={onSelectCurrency} onClickCloseWindow={onClickOpenWindowCurrencies}
+                           currencies={currencies}/>}
             </main>
         </>
     )

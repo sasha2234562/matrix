@@ -26,7 +26,8 @@
 }
 
 .table_select_currencies{
-    width: 100%;
+    width: fit-content;
+    max-width: 100%;
     display: grid;
     -webkit-box-pack: start;
     justify-content: flex-start;
